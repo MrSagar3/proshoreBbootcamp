@@ -21,7 +21,7 @@ const fetchTodos = async () => {
       filteredTodos = todos;
     }
 
-    // Sort todos based on the 'order' field to ensure the correct display order
+    
     filteredTodos.sort((a, b) => a.order - b.order);
 
     showTodos(filteredTodos);
@@ -37,7 +37,7 @@ const addTodo = async (e) => {
     return alert("Enter some task");
   }
 
-  const newTodo = { title, completed: false, order: 0 }; // Default order as 0
+  const newTodo = { title, completed: false, order: 0 }; 
   try {
     await fetch(apiUrl, {
       method: "POST",
@@ -80,9 +80,9 @@ const toggleTodo = async (id, completed) => {
 };
 
 // Rendering todos
-// Rendering todos
+
 const showTodos = (todos) => {
-  listItem.innerHTML = ""; // Clear previous tasks
+  listItem.innerHTML = ""; 
 
   todos.forEach((todo) => {
     const li = document.createElement("li");
@@ -96,36 +96,35 @@ const showTodos = (todos) => {
 
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
-    deleteBtn.classList.add("btn", "btn-danger", "btn-sm", "ms-2");  // Bootstrap styling for button
+    deleteBtn.classList.add("btn", "btn-danger", "btn-sm", "ms-2");  
     deleteBtn.addEventListener("click", () => deleteTodo(todo.id));
 
     li.appendChild(span);
     li.appendChild(deleteBtn);
 
-    // Add a custom data-id attribute to each item for easy access during sorting
     li.dataset.id = todo.id;
 
     listItem.appendChild(li);
   });
 
-  enableSorting(); // Re-enable sorting after rendering the list
+  enableSorting(); 
 };
 
-// Sorting tasks
+
 const enableSorting = () => {
   new Sortable(listItem, {
     animation: 150,
     ghostClass: "sortable-ghost",
     onEnd: async () => {
       const reorderedTasks = Array.from(listItem.children).map((li, index) => {
-        const id = li.dataset.id; // Get the task's ID
+        const id = li.dataset.id; 
         return {
-          id, // Keep the task ID
-          order: index // Assign the new order based on the position in the list
+          id,
+          order: index 
         };
       });
 
-      // Send the updated tasks' order to the JSON server
+     
       try {
         for (const task of reorderedTasks) {
           const response = await fetch(`${apiUrl}/${task.id}`, {
@@ -155,4 +154,4 @@ filterOptions.addEventListener("change", () => {
 
 addTaskBtn.addEventListener("click", addTodo);
 
-fetchTodos(); // Load todos when the page is initialized
+fetchTodos(); 
