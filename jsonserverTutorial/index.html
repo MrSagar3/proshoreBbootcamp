@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Server</title>
+</head>
+<body>
+    <h1>Learning JSON Server</h1>
+    <table  style="border-collapse: collapse;">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            </tr>
+    </thead>
+    <tbody id="tbody">
+        <tr>
+            <td>
+                Elon
+            </td>
+            <td>
+                Elon@gmail.com
+            </td>
+        </tr>
+        
+    </tbody>
+    </table>
+    <script>
+
+let tbody=document.getElementById("tbody")
+
+// fetch function
+fetch("http://localhost:3000/user")
+    .then(res=>res.json())
+    .then(json=>{
+        json.map(data=>{
+            console.log(data)
+            tbody.append(td_fun(data));
+        })
+    })
+
+        // create td
+        function td_fun({name,email}){
+            let td=document.createElement("tr");
+            td.innerHTML=` <td>
+                ${name}
+            </td>
+            <td>
+                ${email}
+            </td>`;
+            return td;
+
+        }
+    </script>
+</body>
+</html>

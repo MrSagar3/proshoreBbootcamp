@@ -1,0 +1,16 @@
+{
+<<<<<<< HEAD
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
+=======
+  "scripts": {
+    "build": "npx tailwindcss -i ./tailwind/input.css -o ./tailwind/output.css --watch"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.15"
+>>>>>>> c91e17b (file structure managed)
+  }
+}
