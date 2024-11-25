@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .child{
+            
+            margin: 20px;
+            padding: 20px;
+            border: 20px solid black
+        }
+
+        .childContainer{
+            
+            margin: 10px;
+            padding: 10px;
+            background-color: aqua;
+        }
+        
+        .container{
+            
+            margin: 10px;
+            padding: 10px;
+            background-color: blue;
+        }
+
+    </style>
+    <title>Events</title>
+</head>
+<body>
+    <!-- <div class="container">
+        <div class="box">Learning some events</div>
+        <button id="btn">I'm Button</button>
+    </div> -->
+    <!-- event bubbling -->
+     <div class="container">
+        <section="childContainer">
+            <div class="child">
+                I'm Child
+            </div>
+        </section>
+     </div>
+    <script>
+        let button=document.getElementById("btn");
+
+        button.addEventListener("click",()=>{
+        alert("Button was clicked");
+});
+
+// for the event bubbling
+document.querySelector(".child").addEventListener("click",()=>{
+    alert("child was Clicked")
+})
+document.querySelector(".childContainer").addEventListener("click",()=>{
+    alert("childContainer was Clicked")
+})
+
+document.querySelector(".container").addEventListener("click", ()=>{
+    alert("container was cliked")
+})
+    </script>
+</body>
+</html>

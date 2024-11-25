@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js">
+    </script>
+    <title>Sortable list JS library</title>
+</head>
+<body>
+    <div id="sortablelist">
+        <ul>
+        <li>Item 1</li>
+        </ul>
+       <ul> <li>Item 4</li>
+    </ul>
+    <ul>
+        <li>Item 2</li>
+    </ul>
+    </div>
+<script>
+    new Sortable(sortablelist,{
+            animation: 150,
+            ghostClass: 'sortable-ghost'
+        });
+</script>
+    
+</body>
+</html>

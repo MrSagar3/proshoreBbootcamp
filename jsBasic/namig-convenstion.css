@@ -1,0 +1,46 @@
+/* BEM method 
+B-Block
+E-Elements
+M-Modifiers
+
+Block wala lai chai single hyphen (-) use garne
+
+Element wala lai chai double underscore ( __ )use garne
+
+Modifiers wala chai double hyphne use garne ( -- )
+
+Example bujham ->
+suppose there is button. then
+
+.stick-man {
+ this is for the button block
+}
+
+.stick-man__head{
+this is for the elements within the block or components
+} 
+
+.stick-man__arms{
+
+}
+
+.stick-man__feet{
+
+}
+
+.stick-man--blue{
+this is for the modifiers
+}
+
+.stick-man--red{
+
+}
+
+aba sab use hudai xa vane
+
+.stick-man__head--small{
+ yesari chai sab use hunxa
+}
+
+
+*/
